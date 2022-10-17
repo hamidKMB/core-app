@@ -5,17 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 
+import Svg from "./assets/svg.svg"
 
 const App = () => {
   return (
     <>
-      <Header />
 
-      {/* <div className="mobile_sidebar">
-        <Sidebar />
-      </div> */}
 
-      <Sidebar device={"desktop_sidebar"} />
+      <Svg />
+      {/* <Header />
+      <Sidebar /> */}
     </>
   )
 }
