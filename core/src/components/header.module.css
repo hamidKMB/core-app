@@ -1,0 +1,32 @@
+* {
+    direction: rtl;
+}
+
+.header {
+    background-color: #1D2236;
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+}
+
+@media (max-width:992px) {
+    .header {
+        width: 95%;
+    }
+}
+
+.input {
+    direction: rtl;
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+.input, .searchInput {
+    color: rgba(220, 222, 243, 0.5);
+    background: #252A41;
+    border: none;
+}
