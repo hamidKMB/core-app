@@ -5,14 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 
-import Svg from "./assets/svg.svg"
+import "./scss/main.scss";
 
 const App = () => {
   return (
     <>
 
-
-      <Svg />
+      <p className="test">
+        hello world
+      </p>
+      
       {/* <Header />
       <Sidebar /> */}
     </>

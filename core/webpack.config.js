@@ -26,7 +26,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(css|s[ac]ss)$/i,
+        test: /\.(css)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
@@ -37,7 +37,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|mp4|mp3|svg)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -45,10 +45,17 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
+        test: /\.(s[ac]ss|scss)$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
       },
+      
     ],
   },
 
