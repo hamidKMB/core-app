@@ -16,7 +16,7 @@
 }
 
 .sidebar_mobile {
-    width: 5%;
+    width: 5.1%;
     position: fixed;
     top: 0;
 }
@@ -71,16 +71,10 @@
 }
 
 .sidebarBtn {
-    padding: 1.57rem 0;
+    padding: 1.76rem 0;
     border: none;
     background-color: #1E2235;
     color: #fff;
-}
-
-@media (max-width: 671.9px) {
-    .sidebarBtn {
-        padding: 2.25rem 0;
-    }
 }
 
 .sidebarItems {

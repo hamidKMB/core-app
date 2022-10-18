@@ -4,6 +4,8 @@ import classes from "./sidebar.module.css";
 
 import Accordion from 'react-bootstrap/Accordion';
 
+import rectangle from "../assets/Rectangle.svg"
+
 const SidebarItems = props => {
 
     const [initialData, setInitialData] = useState(props.data)
@@ -27,20 +29,16 @@ const SidebarItems = props => {
         console.log(item[1].submenu.length);
     })
 
-
     return (
         <>
         
                     <div className='d-flex flex-column pe-4'>
                         <div className='text-white d-flex px-3 py-4'>
-                            <span>
-                                icon
-                            </span>
                             <span className='mx-2'>
                                 SaaS Blocks
                             </span>
                             <span>
-                                icon
+                                <img src={rectangle} />
                             </span>
                         </div>
 
@@ -65,7 +63,7 @@ const SidebarItems = props => {
                                                 <Accordion.Item eventKey={index} className={classes.sidebarItemAcc}>
                                                     <Accordion.Header className={classes.accordionBtn}>
                                                         <span className='ms-2'>
-                                                            {item[1].icon}
+                                                            <img src={item[1].icon} />
                                                         </span>
                                                         <span>
                                                             {item[1].name}
@@ -73,7 +71,7 @@ const SidebarItems = props => {
                                                     </Accordion.Header>
                                                     <Accordion.Body className={classes.sidebarBg_accordion}>
                                                         {
-                                                            item[1].submenu.map(item => <div className='mb-3'>{item}</div>)
+                                                            item[1].submenu.map((item,index) => <div key={index} className='mb-3'>{item}</div>)
                                                         }
                                                     </Accordion.Body>
                                                 </Accordion.Item>
@@ -92,7 +90,7 @@ const SidebarItems = props => {
                                             onClick={()=> sidebarClcikHandler(item)}
                                             >
                                             <span className='ms-2'>
-                                                {item[1].icon}
+                                                <img src={item[1].icon} />
                                             </span>
                                             <span>
                                                 {item[1].name}

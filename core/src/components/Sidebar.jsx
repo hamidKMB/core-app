@@ -7,20 +7,33 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import SidebarItems from './SidebarItems';
 
+import menuIcon from "../assets/menuMobile.svg";
+
+import home from "../assets/home.svg";
+import products from "../assets/products.svg";
+import customers from "../assets/customers.svg";
+import kanban from "../assets/kanban.svg";
+import roadmap from "../assets/roadmap.svg";
+import pricing from "../assets/pricing.svg";
+import chat from "../assets/chat.svg";
+import visitorMap from "../assets/visitorMap.svg";
+import schedule from "../assets/schedule.svg";
+import error from "../assets/error.svg";
+
 
 const Sidebar = props => {
 
     const [initialData, setInitialData] = useState({
-        home: {name: "خانه", icon: "icon", selected: true, submenu: []},
-        product: {name: "Product", icon: "icon", selected: false, submenu: ["sth", "sth2"]},
-        customer: {name: "Customer", icon: "icon", selected: false, submenu: []},
-        kanban: {name: "Kanban", icon: "icon", selected: false, submenu: []},
-        roadmap: {name: "Roadmap", icon: "icon", selected: false, submenu: []},
-        pricing: {name: "Pricing", icon: "icon", selected: false, submenu: []},
-        chat: {name: "Chat", icon: "icon", selected: false, submenu: []},
-        visitorMap: {name: "VisitorMap", icon: "icon", selected: false, submenu: []},
-        schedule: {name: "Schedule", icon: "icon", selected: false, submenu: []},
-        error: {name: "404 Page", icon: "icon", selected: false, submenu: []},
+        home: {name: "خانه", icon: home, selected: true, submenu: []},
+        product: {name: "Product", icon: products, selected: false, submenu: ["sth", "sth2"]},
+        customer: {name: "Customer", icon: customers, selected: false, submenu: []},
+        kanban: {name: "Kanban", icon: kanban, selected: false, submenu: []},
+        roadmap: {name: "Roadmap", icon: roadmap, selected: false, submenu: []},
+        pricing: {name: "Pricing", icon: pricing, selected: false, submenu: []},
+        chat: {name: "Chat", icon: chat, selected: false, submenu: []},
+        visitorMap: {name: "VisitorMap", icon: visitorMap, selected: false, submenu: []},
+        schedule: {name: "Schedule", icon: schedule, selected: false, submenu: []},
+        error: {name: "404 Page", icon: error, selected: false, submenu: []},
 
     });
 
@@ -37,8 +50,8 @@ const Sidebar = props => {
         <>
                 
                 <div>
-                    <button onClick={handleShow} className={`${classes.sidebarBtn} ${classes.sidebar_mobile}`}>
-                        icon
+                    <button onClick={handleShow} className={`pe-2 ${classes.sidebarBtn} ${classes.sidebar_mobile}`}>
+                        <img src={menuIcon} />
                     </button>
 
                     <Offcanvas placement={"end"} show={show} onHide={handleClose} className={classes.sidebarBg_mobile}>
