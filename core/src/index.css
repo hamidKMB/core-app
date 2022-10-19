@@ -1,0 +1,9 @@
+.content {
+    margin: 6rem 20rem 0 0;
+}
+
+@media (max-width: 992px) {
+    .content {
+        margin: 6rem 3rem 0 0;
+    }
+}

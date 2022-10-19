@@ -25,10 +25,6 @@ const SidebarItems = props => {
         setInitialData({...sample});
     }
 
-    Object.entries(initialData).map( (item,index) => {
-        console.log(item[1].submenu.length);
-    })
-
     return (
         <>
         

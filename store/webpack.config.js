@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:3001/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   devServer: {
-    port: 3000,
+    port: 3001,
     historyApiFallback: true,
   },
 
@@ -26,7 +26,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(css)$/i,
+        test: /\.(css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
@@ -36,37 +36,17 @@ module.exports = {
           loader: "babel-loader",
         },
       },
-      {
-        test: /\.(png|jpe?g|gif|mp4|mp3|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
-      {
-        test: /\.(s[ac]ss|scss)$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
-      },
-      
     ],
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "core",
+      name: "store",
       filename: "remoteEntry.js",
-      remotes: {
-        personStore: "store@http://localhost:3001/remoteEntry.js"
+      remotes: {},
+      exposes: {
+        "./personStore" : "./src/personStore"
       },
-      exposes: {},
       shared: {
         ...deps,
         react: {
