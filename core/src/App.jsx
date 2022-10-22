@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import ReactDOM from "react-dom";
+import {useDispatch} from "react-redux"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css"
@@ -12,7 +13,7 @@ const App = () => {
   const {name, age, changeName, changeAge} = usePersonStore();
 
   const nameChangeHandler = e => {
-    changeName(e.target.value)
+    changeName(`${e.target.value}`)
   }
 
   const ageChangeHandler = e => {

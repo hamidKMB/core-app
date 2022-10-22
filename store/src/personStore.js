@@ -21,6 +21,7 @@ export const mainSlice = createSlice({
         },
 
         changeAge(state, action) {
+            console.log(action);
             state.age = action.payload
         },
     }
@@ -37,12 +38,12 @@ const store = configureStore({
 const { changeName , changeAge } = mainSlice.actions;
 
 export function usePersonStore() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     return {
         name: useSelector(state => state.personStore.name),
         age: useSelector(state => state.personStore.age),
-        changeName: () => dispatch(changeName()),
-        changeAge: () => dispatch(changeAge()),
+        changeName: (name) => dispatch( changeName(name) ),
+        changeAge: (age) => dispatch ( changeAge(age) ),
     }
 }
 
