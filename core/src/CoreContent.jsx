@@ -16,6 +16,7 @@ const CoreContent = () => {
       <div className="content">
         <Routes>
           <Route path="/" element={<div>Hello Home</div>} />
+          <Route path="/customer" element={<div>Hello customer</div>} />
         </Routes>
       </div>
     </React.Fragment>
