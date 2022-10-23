@@ -12,7 +12,6 @@ const SidebarItems = (props) => {
   let navigate = useNavigate();
 
   const sidebarClickHandler = (item) => {
-    console.log(item);
     const sample = initialData;
 
     // make all of them false

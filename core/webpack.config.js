@@ -40,7 +40,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|mp4|mp3|svg)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
       },
@@ -55,7 +55,6 @@ module.exports = {
           "sass-loader",
         ],
       },
-      
     ],
   },
 
@@ -64,9 +63,12 @@ module.exports = {
       name: "core",
       filename: "remoteEntry.js",
       remotes: {
-        personStore: "store@http://localhost:3001/remoteEntry.js"
+        personStore: "store@http://localhost:3001/remoteEntry.js",
+        authPage: "Auth@http://localhost:3010/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        "./coreLayout": "./src/CoreContent.jsx",
+      },
       shared: {
         ...deps,
         react: {
