@@ -87,6 +87,11 @@
 }
 
 .sidebarItmesColor_active {
+    color: #fff;
+    transition: 0.3s;
+}
+
+.sidebarItmesColor_active {
     background-color: #252A41;
     color: #fff;
     border-radius: 12px;

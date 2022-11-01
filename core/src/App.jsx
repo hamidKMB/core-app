@@ -2,6 +2,8 @@ import React, {useEffect} from "react";
 import ReactDOM from "react-dom";
 import {useDispatch} from "react-redux"
 
+import { BrowserRouter, Router, Route } from "react-router-dom";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css"
 import Header from "./components/Header";
@@ -38,6 +40,8 @@ const App = () => {
 
 ReactDOM.render(
   <PersonStoreProvider>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </PersonStoreProvider>,
 document.getElementById("app"));

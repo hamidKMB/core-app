@@ -1,28 +1,31 @@
 import React, {useState} from 'react';
 
+// css
 import classes from "./sidebar.module.css";
 
+// components
 import Accordion from 'react-bootstrap/Accordion';
+import ReactDOM from 'react-dom';
+import { Link, Route, Routes, NavLink } from "react-router-dom";
 
-import rectangle from "../assets/Rectangle.svg"
+// img
+import rectangle from "../assets/Rectangle.svg";
+
 
 const SidebarItems = props => {
 
-    const [initialData, setInitialData] = useState(props.data)
+    /* ---------------------------------- props --------------------------------- */
 
-    const sidebarClcikHandler = item => {
-        const sample = initialData;
+    const {initialState} = props;
 
-        // make all of them false
-        Object.keys(sample).map(element => {
-            sample[element].selected = false; 
-        })
+    /* --------------------------------- states --------------------------------- */
 
-        // make selected 
-        sample[item[0]].selected = true;
+    const [selected, setSelected] = useState(false)
 
-        // set
-        setInitialData({...sample});
+    /* ---------------------------- function handlers --------------------------- */
+
+    const sidebarClcikHandler = id => {
+        setSelected(id);
     }
 
     return (
@@ -40,58 +43,70 @@ const SidebarItems = props => {
 
 
                         {
-                            Object.entries(initialData).map( (item,index) =>
+                            initialState.map( (item, index) =>
             
-                                    item[1].submenu.length
+                                item.child.length 
                                     ?
                                         <Accordion 
-                                            key={index} 
+                                            key={item.id}
                                             className={
-                                                        `
-                                                            d-flex align-item-center 
-                                                            ${classes.sidebarBg_accordion}
-                                                            ${classes.sidebarItems} 
-                                                            ${item[1].selected ? classes.sidebarItmesColor_active : classes.sidebarItmesColor}
-                                                        `
-                                                    } 
-                                            onClick={()=> sidebarClcikHandler(item)}
-                                            >
-                                                <Accordion.Item eventKey={index} className={classes.sidebarItemAcc}>
-                                                    <Accordion.Header className={classes.accordionBtn}>
-                                                        <span className='ms-2'>
-                                                            <img src={item[1].icon} />
-                                                        </span>
-                                                        <span>
-                                                            {item[1].name}
-                                                        </span>
-                                                    </Accordion.Header>
-                                                    <Accordion.Body className={classes.sidebarBg_accordion}>
+                                                `
+                                                    d-flex align-item-center 
+                                                    ${classes.sidebarBg_accordion}
+                                                    ${classes.sidebarItems} 
+                                                `
+                                            } 
+                                            onClick={()=> sidebarClcikHandler(item.id)}
+                                        >
+                                            
+                                            <Accordion.Item eventKey={index} className={classes.sidebarItemAcc}>
+                                                <Accordion.Header className={classes.accordionBtn}>
+                                                    <span className='ms-3'>
                                                         {
-                                                            item[1].submenu.map((item,index) => <div key={index} className='mb-3'>{item}</div>)
+                                                            item.id == selected
+                                                            ?       
+                                                                <img src={item.icon_active} />
+                                                            :
+                                                                <img src={item.icon} />
                                                         }
-                                                    </Accordion.Body>
-                                                </Accordion.Item>
+                                                    </span>
+                                                    <span className={ item.id == selected ? classes.sidebarItmesColor_active : classes.sidebarItmesColor}>
+                                                        {item.name}
+                                                    </span>
+                                                </Accordion.Header>
+                                                <Accordion.Body className={classes.sidebarBg_accordion}>
+                                                    {
+                                                        item.child.map((child,index) => <div key={index} className='mb-3'>{child}</div>)
+                                                    }
+                                                </Accordion.Body>
+                                            </Accordion.Item>
                                         </Accordion>
                                     :
-
-                                        <div 
-                                            key={index} 
+                                        
+                                        <NavLink 
+                                            key={item.id}
+                                            to='#'
                                             className={
-                                                        `
-                                                            d-flex align-item-center 
-                                                            ${classes.sidebarItems} 
-                                                            ${item[1].selected ? classes.sidebarItmesColor_active : classes.sidebarItmesColor}
-                                                        `
-                                                    } 
-                                            onClick={()=> sidebarClcikHandler(item)}
-                                            >
+                                                `
+                                                    d-flex align-item-center 
+                                                    ${classes.sidebarItems}
+                                                `
+                                            } 
+                                            onClick={()=> sidebarClcikHandler(item.id)}
+                                        >
                                             <span className='ms-2'>
-                                                <img src={item[1].icon} />
-                                            </span>
-                                            <span>
-                                                {item[1].name}
-                                            </span>
-                                        </div>
+                                                {
+                                                    item.id == selected
+                                                        ?       
+                                                            <img src={item.icon_active} />
+                                                        :
+                                                            <img src={item.icon} />
+                                                }
+                                             </span>
+                                             <span className={item.id == selected ? classes.sidebarItmesColor_active : classes.sidebarItmesColor}>
+                                                 {item.name}
+                                             </span>
+                                        </NavLink>
                             )
                         }
                     </div>

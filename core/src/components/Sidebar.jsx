@@ -9,6 +9,7 @@ import SidebarItems from './SidebarItems';
 
 import menuIcon from "../assets/menuMobile.svg";
 
+// icons
 import home from "../assets/home.svg";
 import products from "../assets/products.svg";
 import customers from "../assets/customers.svg";
@@ -20,30 +21,117 @@ import visitorMap from "../assets/visitorMap.svg";
 import schedule from "../assets/schedule.svg";
 import error from "../assets/error.svg";
 
+// active icons
+import home_active from "../assets/active/home.svg";
+import products_active from "../assets/active/products.svg";
+import customers_active from "../assets/active/customers.svg";
+import kanban_active from "../assets/active/kanban.svg";
+import roadmap_active from "../assets/active/roadmap.svg";
+import pricing_active from "../assets/active/pricing.svg";
+import chat_active from "../assets/active/chat.svg";
+import visitorMap_active from "../assets/active/visitorMap.svg";
+import schedule_active from "../assets/active/schedule.svg";
+import error_active from "../assets/active/error.svg";
+
 
 const Sidebar = props => {
 
-    const [initialData, setInitialData] = useState({
-        home: {name: "خانه", icon: home, selected: true, submenu: []},
-        product: {name: "Product", icon: products, selected: false, submenu: ["sth", "sth2"]},
-        customer: {name: "Customer", icon: customers, selected: false, submenu: []},
-        kanban: {name: "Kanban", icon: kanban, selected: false, submenu: []},
-        roadmap: {name: "Roadmap", icon: roadmap, selected: false, submenu: []},
-        pricing: {name: "Pricing", icon: pricing, selected: false, submenu: []},
-        chat: {name: "Chat", icon: chat, selected: false, submenu: []},
-        visitorMap: {name: "VisitorMap", icon: visitorMap, selected: false, submenu: []},
-        schedule: {name: "Schedule", icon: schedule, selected: false, submenu: []},
-        error: {name: "404 Page", icon: error, selected: false, submenu: []},
+    const [initialState, setInitialState] = useState([
+        {
+            name: "خانه",
+            id: "1",
+            icon: home,
+            icon_active: home_active,
+            child: ["child1", "child2"],
+            to: "/"
+        },
 
-    });
+        {
+            name: "Product",
+            id: "2",
+            icon: products,
+            icon_active: products_active,
+            child: [],
+            to: "/"
+        },
+
+        {
+            name: "Customer",
+            id: "3",
+            icon: customers,
+            icon_active: customers_active,
+            child: [],
+            to: "/"
+        },
+
+        {
+            name: "Kanban",
+            id: "4",
+            icon: kanban,
+            icon_active: kanban_active,
+            child: [],
+            to: "/"
+        },
+
+        {
+            name: "Roadmap",
+            id: "5",
+            icon: roadmap,
+            icon_active: roadmap_active,
+            child: [],
+            to: "/"
+        },
+
+        {
+            name: "Pricing",
+            id: "6",
+            icon: pricing,
+            icon_active: pricing_active,
+            child: [],
+            to: "/"
+        },
+
+        {
+            name: "Chat",
+            id: "7",
+            icon: chat,
+            icon_active: chat_active,
+            child: [],
+            to: "#"
+        },
+
+        {
+            name: "Visitor Map",
+            id: "8",
+            icon: visitorMap,
+            icon_active: visitorMap_active,
+            child: [],
+            to: "/"
+        },
+
+        {
+            name: "Schedule",
+            id: "9",
+            icon: schedule,
+            icon_active: schedule_active,
+            child: [],
+            to: "/"
+        },
+
+        {
+            name: "404 Page",
+            id: "10",
+            icon: error,
+            icon_active: error_active,
+            child: [],
+            to: "/"
+        },
+    ])
 
     
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    
-    const viewPort = window.matchMedia("(max-width: 992px)").matches;
 
     return (
 
@@ -57,14 +145,14 @@ const Sidebar = props => {
                     <Offcanvas placement={"end"} show={show} onHide={handleClose} className={classes.sidebarBg_mobile}>
                         <Offcanvas.Header closeButton />
                         <Offcanvas.Body>
-                            <SidebarItems data={initialData} viewPort={viewPort} />
+                            <SidebarItems initialState={initialState} />
                         </Offcanvas.Body>
                     </Offcanvas>
                 </div>
 
 
                 <div className={`${classes.sidebarBg} ${classes.sidebar_dekstop}`}>
-                    <SidebarItems data={initialData} viewPort={viewPort} />
+                    <SidebarItems initialState={initialState} />
                 </div>
             
         </>
