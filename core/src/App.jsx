@@ -1,19 +1,23 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import {useDispatch} from "react-redux"
 
+<<<<<<< HEAD
 import { BrowserRouter, Router, Route } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css"
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+=======
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+>>>>>>> 2daa4d6119420ed4e228b4922cb44b2e09ae0615
 
-import { usePersonStore, PersonStoreProvider } from "personStore/personStore";
+import CoreContent from "./CoreContent";
 
-const App = () => {
-  const {name, age, changeName, changeAge} = usePersonStore();
+const App = () => <CoreContent />;
 
+<<<<<<< HEAD
   const nameChangeHandler = e => {
     changeName(`${e.target.value}`)
   }
@@ -45,3 +49,6 @@ ReactDOM.render(
     </Router>
   </PersonStoreProvider>,
 document.getElementById("app"));
+=======
+ReactDOM.render(<App />, document.getElementById("app"));
+>>>>>>> 2daa4d6119420ed4e228b4922cb44b2e09ae0615

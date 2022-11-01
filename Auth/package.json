@@ -1,10 +1,10 @@
 {
-  "name": "core",
+  "name": "Auth",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:start": "cd dist && PORT=3000 npx serve",
+    "build:start": "cd dist && PORT=3010 npx serve",
     "start": "webpack serve --open --mode development",
     "start:live": "webpack serve --open --mode development --live-reload --hot"
   },
@@ -18,36 +18,23 @@
     "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
-    "@svgr/webpack": "^6.5.0",
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
-    "file-loader": "^6.2.0",
-    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.3.2",
     "postcss": "^8.2.1",
     "postcss-loader": "^4.1.0",
-    "sass": "^1.55.0",
-    "sass-loader": "^13.1.0",
     "style-loader": "^3.3.0",
-    "webpack": "^5.74.0",
+    "webpack": "^5.57.1",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
-    "@remix-run/router": "^1.0.2",
     "bootstrap": "^5.2.2",
-    "node-sass": "^7.0.3",
     "react": "^17.0.2",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^17.0.2",
-    "react-redux": "^8.0.4",
-<<<<<<< HEAD
-    "react-router": "^6.4.2",
-=======
->>>>>>> 2daa4d6119420ed4e228b4922cb44b2e09ae0615
-    "react-router-dom": "^6.4.2",
-    "redux": "^4.2.0"
+    "react-router-dom": "^6.4.2"
   }
 }

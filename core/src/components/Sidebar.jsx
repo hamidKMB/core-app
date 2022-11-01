@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./sidebar.module.css";
 
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import SidebarItems from './SidebarItems';
+import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import SidebarItems from "./SidebarItems";
 
 import menuIcon from "../assets/menuMobile.svg";
 
@@ -21,6 +21,7 @@ import visitorMap from "../assets/visitorMap.svg";
 import schedule from "../assets/schedule.svg";
 import error from "../assets/error.svg";
 
+<<<<<<< HEAD
 // active icons
 import home_active from "../assets/active/home.svg";
 import products_active from "../assets/active/products.svg";
@@ -33,9 +34,75 @@ import visitorMap_active from "../assets/active/visitorMap.svg";
 import schedule_active from "../assets/active/schedule.svg";
 import error_active from "../assets/active/error.svg";
 
+=======
+const Sidebar = (props) => {
+  const [initialData, setInitialData] = useState({
+    home: { name: "خانه", path: "/", icon: home, selected: true, submenu: [] },
+    product: {
+      name: "Product",
+      path: "/",
+      icon: products,
+      selected: false,
+      submenu: ["sth", "sth2"],
+    },
+    customer: {
+      name: "Customer",
+      path: "/customer",
+      icon: customers,
+      selected: false,
+      submenu: [],
+    },
+    kanban: {
+      name: "Kanban",
+      path: "/",
+      icon: kanban,
+      selected: false,
+      submenu: [],
+    },
+    roadmap: {
+      name: "Roadmap",
+      path: "/",
+      icon: roadmap,
+      selected: false,
+      submenu: [],
+    },
+    pricing: {
+      name: "Pricing",
+      path: "/",
+      icon: pricing,
+      selected: false,
+      submenu: [],
+    },
+    chat: { name: "Chat", path: "/", icon: chat, selected: false, submenu: [] },
+    visitorMap: {
+      name: "VisitorMap",
+      path: "/",
+      icon: visitorMap,
+      selected: false,
+      submenu: [],
+    },
+    schedule: {
+      name: "Schedule",
+      path: "/",
+      icon: schedule,
+      selected: false,
+      submenu: [],
+    },
+    error: {
+      name: "404 Page",
+      path: "/",
+      icon: error,
+      selected: false,
+      submenu: [],
+    },
+  });
+>>>>>>> 2daa4d6119420ed4e228b4922cb44b2e09ae0615
 
-const Sidebar = props => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
+<<<<<<< HEAD
     const [initialState, setInitialState] = useState([
         {
             name: "خانه",
@@ -127,12 +194,34 @@ const Sidebar = props => {
             to: "/"
         },
     ])
+=======
+  const viewPort = window.matchMedia("(max-width: 992px)").matches;
 
-    
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  return (
+    <>
+      <div>
+        <button
+          onClick={handleShow}
+          className={`pe-2 ${classes.sidebarBtn} ${classes.sidebar_mobile}`}
+        >
+          <img src={menuIcon} />
+        </button>
+>>>>>>> 2daa4d6119420ed4e228b4922cb44b2e09ae0615
 
+        <Offcanvas
+          placement={"end"}
+          show={show}
+          onHide={handleClose}
+          className={classes.sidebarBg_mobile}
+        >
+          <Offcanvas.Header closeButton />
+          <Offcanvas.Body>
+            <SidebarItems data={initialData} viewPort={viewPort} />
+          </Offcanvas.Body>
+        </Offcanvas>
+      </div>
+
+<<<<<<< HEAD
     return (
 
         <>
@@ -160,3 +249,13 @@ const Sidebar = props => {
 }
 
 export default Sidebar;
+=======
+      <div className={`${classes.sidebarBg} ${classes.sidebar_dekstop}`}>
+        <SidebarItems data={initialData} viewPort={viewPort} />
+      </div>
+    </>
+  );
+};
+
+export default Sidebar;
+>>>>>>> 2daa4d6119420ed4e228b4922cb44b2e09ae0615
