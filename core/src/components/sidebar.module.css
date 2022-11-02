@@ -79,6 +79,7 @@
 
 .sidebarItems {
     padding: 1rem;
+    text-decoration: none !important;
 }
 
 .sidebarItmesColor {

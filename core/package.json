@@ -43,10 +43,7 @@
     "react-bootstrap": "^2.5.0",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.4",
-<<<<<<< HEAD
     "react-router": "^6.4.2",
-=======
->>>>>>> 2daa4d6119420ed4e228b4922cb44b2e09ae0615
     "react-router-dom": "^6.4.2",
     "redux": "^4.2.0"
   }
