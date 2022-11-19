@@ -46,7 +46,10 @@ const Routing = () => {
     );
   }
 
+  console.log(isLoggedIn);
+
   if (isLoggedIn) {
+    console.log("in isLoggedIn");
     return (
       <React.Fragment>
         <Header />
@@ -55,6 +58,7 @@ const Routing = () => {
           <Routes>
             <Route path="/" element={<div>Hello Home</div>} />
             <Route path="/customer" element={<div>Hello customer</div>} />
+            <Route path="/login" element={<Navigate to="/" />} />
           </Routes>
         </div>
       </React.Fragment>
@@ -62,9 +66,10 @@ const Routing = () => {
   }
 
   if (!isLoggedIn) {
+    console.log("in isNotLoggedIn");
     return (
       <Routes>
-        <Route path="/*" element={<Navigate to="/login" />} />
+        <Route path="*" element={<Navigate to="/login" />} />
         <Route path="/login" element={<AuthPage />} />
       </Routes>
     );
